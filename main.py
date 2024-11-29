@@ -9,7 +9,6 @@ from src.bot.handlers import register_handlers
 from src.logging_config import setup_logging
 from src.scheduler.scheduler_manager import SchedulerManager
 
-from config.settings import GROUP_ID
 
 async def main():
     setup_logging()
@@ -18,7 +17,6 @@ async def main():
     dp = Dispatcher()
 
     scheduler = SchedulerManager(bot=bot)
-    # await scheduler._sending_reports()
     scheduler.start()
 
     register_handlers(dp)
