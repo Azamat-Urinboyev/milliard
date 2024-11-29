@@ -1,0 +1,38 @@
+# Python cache directories
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+env/
+
+# Environment variable files
+.env
+
+# Log files
+*.log
+
+# Compiled files
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+
+# Ignore lib folder
+lib/
+
+config/credentials.json

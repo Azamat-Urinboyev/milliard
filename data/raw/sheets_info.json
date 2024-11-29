@@ -1,0 +1,61 @@
+{
+    "calls": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "Асосий",
+        "start_date_cell": "B1",
+        "end_date_cell": "D1",
+        "range": "B4:J20"
+    },
+    "productivity": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "Асосий",
+        "range": "N4:X20"
+    },
+    "call_time": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "Асосий",
+        "range": "AA4:AK20"
+    },
+    "leads": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "Leadlar otchot",
+        "daily_range": "A2:H19",
+        "daily_set_date": "B1",
+        "all_range": "K2:R19",
+        "all_set_date": "L1",
+        "check_date": "AD1",
+        "check_value": "AD2"
+    },
+    "tur": {
+        "sheet_id": "17fZtqTcHquEjbidL0WSeOiYI5Dvy43VAetwglUDBCW4",
+        "table_name": "Asosiy",
+        "range": "A23:E39",
+        "which_tur": "A22:E22",
+        "what_tur": "19-Тур Январь"
+    },
+    "milliard": {
+        "sheet_id": "17fZtqTcHquEjbidL0WSeOiYI5Dvy43VAetwglUDBCW4",
+        "table_name": "Asosiy",
+        "range": "G23:K39"
+    },
+    "dastur_payment": {
+        "sheet_id": "17fZtqTcHquEjbidL0WSeOiYI5Dvy43VAetwglUDBCW4",
+        "table_name": "dastur 17",
+        "range": "A3:M19",
+        "which_dastur": "A2:V2",
+        "what_dastur": "18-Дастур"
+    },
+    "weekly_sales": {
+        "sheet_id": "15BrF5Ih8Uv_snoVot5MmfAfNhUuEraOzdhbczKZ3nDM",
+        "table_name": "Sotuv Plan/fakt",
+        "range": "U1:W12"
+    },
+    "daily_calls": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "База 19.11.24-"
+    },
+    "attendance": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "приход / уход"
+    }
+}
