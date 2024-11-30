@@ -1,5 +1,4 @@
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from apscheduler.jobstores.memory import MemoryJobStore
 from apscheduler.triggers.cron import CronTrigger
 from aiogram.types.input_file import FSInputFile
 import logging
@@ -12,10 +11,7 @@ from config.settings import GROUP_ID
 
 class SchedulerManager:
     def __init__(self, bot):
-        self.scheduler = AsyncIOScheduler(
-            jobstores={'default': MemoryJobStore()},
-            timezone=pytz.UTC
-        )
+        self.scheduler = AsyncIOScheduler(timezone=pytz.UTC)
         self.bot = bot
 
     async def _sending_reports(self):

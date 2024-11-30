@@ -42,6 +42,7 @@ def plot_calls(df):
     table.set_alternating_row_colors(color=green_cmap["color1"], color2=green_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
     fig.savefig("data/processed/call_number.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/call_number.png"
 
 
@@ -77,6 +78,7 @@ def plot_productivity(df):
     table.set_alternating_row_colors(color=green_cmap["color1"], color2=green_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
     fig.savefig("data/processed/productivity.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/productivity.png"
     
 
@@ -107,6 +109,7 @@ def plot_call_time(df):
     table.set_alternating_row_colors(color=green_cmap["color1"], color2=green_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
     fig.savefig("data/processed/call_time.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/call_time.png"
     
 
@@ -135,6 +138,7 @@ def plot_leads(df):
     table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
     table.rows[table.n_rows-2].set_facecolor(green_cmap["footer"])
     fig.savefig("data/processed/leads.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/leads.png"
     
 
@@ -159,6 +163,7 @@ def plot_tur(df):
     table.set_alternating_row_colors(color=yellow_cmap["color1"], color2=yellow_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(yellow_cmap["footer"])
     fig.savefig("data/processed/tur.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/tur.png"
     
 
@@ -182,6 +187,7 @@ def plot_milliard(df):
     table.set_alternating_row_colors(color=yellow_cmap["color1"], color2=yellow_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(yellow_cmap["footer"])
     fig.savefig("data/processed/milliard.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/milliard.png"
     
 
@@ -210,6 +216,7 @@ def plot_dastur(df):
     table.set_alternating_row_colors(color=green_cmap["color1"], color2=green_cmap["color2"])
     table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
     fig.savefig("data/processed/dastur.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
     return "data/processed/dastur.png"
     
 
