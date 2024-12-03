@@ -36,3 +36,5 @@ dist/
 lib/
 
 config/credentials.json
+data/processed
+test.py
