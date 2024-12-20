@@ -1,13 +1,26 @@
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher
-from aiogram.types.input_file import FSInputFile
-from aiogram.webhook.aiohttp_server import setup_application
+from aiogram.webhook.aiohttp_server import setup_application, WebhookRequestHandler
+import aiohttp
+from aiohttp import web
 
 from config.settings import BOT_TOKEN
 from src.bot.handlers import register_handlers
 from src.logging_config import setup_logging
 from src.scheduler.scheduler_manager import SchedulerManager
+
+WEB_SERVER_HOST
+WEB_SERVER_PORT
+
+WEBHOOK_PATH = "/webhook"
+WEBHOOK_SECRET = "my-secret"
+BASE_WEBHOOK_URL = "https://aiogram.dev"
+
+
+async def on_startup(bot: Bot) -> None:
+    await bot.set_webhook(f"{BASE_WEBHOOK_URL}{WEBHOOK_PATH}", secret_token=WEBHOOK_SECRET)
+
 
 
 async def main():
@@ -22,23 +35,12 @@ async def main():
     register_handlers(dp)
     
     try:
-        await dp.start_polling(bot)
+        # Use webhook for production
+        await start_webhook(bot, dp)
     except Exception as e:
-        logging.error(f"Error starting bot: {e}")
+        logging.error(f"Error starting webhook: {e}")
     finally:
         await bot.session.close()
-
-# Webhook alternative (for production deployment)
-async def start_webhook(bot: Bot, dp: Dispatcher):
-    # Set up webhook (replace with your webhook URL)
-    WEBHOOK_URL = 'https://your-webhook-url.com/webhook'
-    
-    await bot.set_webhook(WEBHOOK_URL)
-    
-    # Setup aiohttp server for webhook
-    app = setup_application(dp, bot)
-    # Configure and run web server (example with aiohttp)
-    # This is a placeholder and needs proper web server configuration
 
 if __name__ == '__main__':
     asyncio.run(main())

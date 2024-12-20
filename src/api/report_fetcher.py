@@ -77,8 +77,26 @@ class Reports:
         main_data["Рейтинг ўзгариши"] = main_data["ranking_change"].apply(self._calculate_ranking)
         df = pd.concat([main_data, last_row])
         df = df[["Рейтинг", "Рейтинг ўзгариши", "Прогноз", "Сотув хозирги", "Ўзгариш 17-дастурга нисбатан", "Унумдорлик", "Қўшимча сотув прогнози", "Умумий сотув прогнози", "Бонус прогноз%"]]
+        
+        
+    
+
+    def get_productivity2(self):
+        sheet_id = self.sheets_info["productivity2"]["sheet_id"]
+        table_name = self.sheets_info["productivity2"]["table_name"]
+        data_range = self.sheets_info["productivity2"]["range"]
+
+        data = self.service.spreadsheets().values().get(spreadsheetId=sheet_id, range=f"{table_name}!{data_range}").execute()["values"]
+        df = pd.DataFrame(data=data[1:], columns=data[0])
+        main_data = df.iloc[:-1]
+        last_row = df.iloc[[-1]]
+        main_data.loc[:, "Унумдорлик"] = main_data["Унумдорлик"].astype(str).astype(int)
+        main_data.loc[:, "Унумдорлик"] = main_data["Унумдорлик"].astype(str).astype(int)
+        main_data = main_data.sort_values(by="Унумдорлик")
+        df = pd.concat([main_data, last_row])
         df = df.set_index(df.columns[0])
         return df
+
 
 
     def _calculate_ranking(self, rank_num):
@@ -176,6 +194,11 @@ class Reports:
 
         data = self.service.spreadsheets().values().get(spreadsheetId=sheet_id, range=f"{table_name}!{data_range}").execute()["values"]
         df = pd.DataFrame(data=data[1:], columns=data[0])
+        main_data = df.iloc[:-1]
+        last_row = df.iloc[[-1]]
+        main_data.loc[:, "Жами Сотув"] = main_data["Жами Сотув"].astype(str).astype(int)
+        main_data = main_data.sort_values(by="Жами Сотув", ascending=False)
+        df = pd.concat([main_data, last_row])
         df = df.set_index(df.columns[0])
         return df
     
@@ -186,6 +209,12 @@ class Reports:
 
         data = self.service.spreadsheets().values().get(spreadsheetId=sheet_id, range=f"{table_name}!{data_range}").execute()["values"]
         df = pd.DataFrame(data=data[1:], columns=data[0])
+        main_data = df.iloc[:-1]
+        last_row = df.iloc[[-1]]
+        main_data.loc[:, "Қарз Сумма"] = main_data["Қарз Сумма"].apply(lambda x: x.replace("\xa0", "")).astype(int)
+        main_data = main_data.sort_values(by="Қарз Сумма")
+        main_data.loc[:, "Қарз Сумма"] = main_data["Қарз Сумма"].apply(lambda x: f"{x:,}".replace(",", " "))
+        df = pd.concat([main_data, last_row])
         df = df.set_index(df.columns[0])
         return df
 

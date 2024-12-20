@@ -11,6 +11,11 @@
         "table_name": "Асосий",
         "range": "N4:X20"
     },
+    "productivity2": {
+        "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
+        "table_name": "Асосий",
+        "range": "AN4:AS20"
+    },
     "call_time": {
         "sheet_id": "11ZS9ZiszGs7N_pSLTvefgC8yUyRxz7SYJkjdPO5D2UQ",
         "table_name": "Асосий",

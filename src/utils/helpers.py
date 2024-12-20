@@ -10,6 +10,7 @@ from src.api.report_fetcher import Reports
 from src.visualization.table_plot import (
      plot_calls,
      plot_productivity,
+     plot_productivity2,
      plot_call_time,
      plot_leads,
      plot_weekly_sales,
@@ -65,6 +66,14 @@ def get_reports():
         prod_dir = plot_productivity(prod)
     except Exception as e:
         logging.error(f"Error processing productivity: {e}")
+        prod_dir = None
+    results.append(prod_dir)
+
+    try:
+        prod = report.get_productivity2()
+        prod_dir = plot_productivity2(prod)
+    except Exception as e:
+        logging.error(f"Error processing productivity2: {e}")
         prod_dir = None
     results.append(prod_dir)
 

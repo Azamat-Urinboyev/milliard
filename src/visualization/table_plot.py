@@ -83,6 +83,39 @@ def plot_productivity(df):
     
 
 
+def plot_productivity2(df):
+    red = "#ea4335"
+    green = "#63d297"
+
+    # Not working because of alternating rows
+    cmap = LinearSegmentedColormap.from_list(
+        name="rank_difference", colors=[red, "white", green], N=3
+    )
+
+    col_defs = [
+        ColumnDefinition(name="Сотрудник", textprops={"ha": "left"}, width=1),
+        ColumnDefinition(name="Унумдорлик", textprops={"ha": "center"}, width=0.4),
+        ColumnDefinition(name="Енг яхши унумдорлик", textprops={"ha": "center"}, width=0.4, title="Енг яхши\nунумдорлик"),
+        ColumnDefinition(name="Сотув болар еди", textprops={"ha": "right"}, width=0.4, title="Сотув\nболар еди"),
+        ColumnDefinition(name="Сотув хозирги", textprops={"ha": "right"}, width=0.4, title="Сотув\nхозирги", cmap=cmap),
+        ColumnDefinition(name="Сотув фарки", textprops={"ha": "right"}, width=0.4, title="Сотув\nфарки")
+    ]
+    fig, ax = plt.subplots(figsize=(15, 6))
+    ax.set_title("Sotuv unimdorligi 2", fontdict={'family':'serif','color':'black','size':20}, pad=20)
+    # fig.set_facecolor(green_cmap["header"])
+    table = Table(
+        df,
+        textprops={"fontsize": 10},
+        column_definitions=col_defs,
+        col_label_cell_kw={"height": 1.7}
+        )
+    table.set_alternating_row_colors(color=green_cmap["color1"], color2=green_cmap["color2"])
+    table.rows[table.n_rows-1].set_facecolor(green_cmap["footer"])
+    fig.savefig("data/processed/productivity2.png", pad_inches=0.1, bbox_inches='tight', dpi=300)
+    plt.close()
+    return "data/processed/productivity2.png"
+
+
 def plot_call_time(df):
     col_defs = [
         ColumnDefinition(name="Сотрудник", textprops={"ha": "left"}, width=1),

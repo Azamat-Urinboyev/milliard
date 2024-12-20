@@ -26,11 +26,11 @@ class SchedulerManager:
 
     def start(self):
         #updating calls
-        calls_update_trigger = CronTrigger(hour=9, minute=30)
+        calls_update_trigger = CronTrigger(hour=8, minute=5)
         self.scheduler.add_job(func=add_yesterdays_calls, trigger=calls_update_trigger)
 
         #update attendance
-        attendance_trigger = CronTrigger(hour=9, minute=30)
+        attendance_trigger = CronTrigger(hour=8, minute=5)
         self.scheduler.add_job(func=add_attendance, trigger=attendance_trigger)
 
         #sending reports
